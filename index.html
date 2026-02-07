@@ -10,7 +10,7 @@
             --accent: #6366f1;
             --discord: #5865F2;
             --bg: #030303;
-            --glass: rgba(0, 0, 0, 0.8);
+            --glass: rgba(0, 0, 0, 0.82);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -22,10 +22,10 @@
             align-items: center; 
             min-height: 100vh; 
             font-family: 'Segoe UI', system-ui, sans-serif;
-            overflow: hidden;
+            overflow-x: hidden;
         }
 
-        /* BANNER COMO FUNDO IMERSIVO */
+        /* BANNER COMO FUNDO */
         body::before {
             content: ""; 
             position: fixed; 
@@ -35,7 +35,6 @@
             z-index: -2;
         }
 
-        /* CAMADA DE FOCO E CONTRASTE */
         body::after {
             content: "";
             position: fixed;
@@ -45,17 +44,34 @@
             z-index: -1;
         }
 
+        /* CARD PRINCIPAL - Adaptável */
         .stage-card {
             width: 90%;
-            max-width: 400px;
+            max-width: 400px; /* Tamanho padrão para Mobile */
             background: var(--glass);
             border: 2px solid rgba(255, 0, 127, 0.4);
             border-radius: 40px;
             overflow: hidden;
             backdrop-filter: blur(20px);
-            box-shadow: 0 0 50px rgba(0,0,0,0.9), 0 0 20px rgba(255, 0, 127, 0.2);
+            box-shadow: 0 0 60px rgba(0,0,0,0.9), 0 0 20px rgba(255, 0, 127, 0.2);
             text-align: center;
             padding-bottom: 30px;
+            transition: max-width 0.5s ease;
+        }
+
+        /* AJUSTE PARA COMPUTADOR (Ecrãs maiores que 768px) */
+        @media (min-width: 768px) {
+            .stage-card {
+                max-width: 550px; /* Fica maior no PC */
+            }
+            .link-card {
+                padding: 18px 30px !important; /* Botões mais robustos */
+                font-size: 0.9rem !important;
+            }
+            .profile-img {
+                width: 160px !important; /* Foto maior no PC */
+                height: 160px !important;
+            }
         }
 
         .card-header {
@@ -70,7 +86,6 @@
             z-index: 2;
         }
 
-        /* PERFIL SEMPRE CIRCULAR */
         .profile-img {
             width: 140px;
             height: 140px;
@@ -79,23 +94,22 @@
             background: #000;
             object-fit: cover;
             box-shadow: 0 0 30px var(--primary);
-            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: 0.4s ease-in-out;
         }
 
-        .profile-img:hover { transform: scale(1.08) rotate(3deg); }
+        .profile-img:hover { transform: scale(1.05); }
 
         .social-links {
             padding: 30px 25px;
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 14px;
         }
 
-        /* BOTÃO COM TRATAMENTO PARA ÍCONES NÃO QUADRADOS */
         .link-card {
             display: flex;
             align-items: center;
-            padding: 12px 20px;
+            padding: 14px 20px;
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 20px;
@@ -103,44 +117,41 @@
             text-decoration: none;
             font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 2px;
             font-size: 0.8rem;
-            transition: 0.3s;
-            position: relative;
+            transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* AQUI ESTÁ A MÁGICA PARA O TIKTOK E OUTROS */
         .link-card img {
-            width: 28px; 
-            height: 28px;
-            object-fit: contain; /* Não estica a imagem, mantém a proporção */
-            border-radius: 6px;  /* Arredondamento suave nas pontas */
+            width: 30px; 
+            height: 30px;
+            object-fit: contain;
+            border-radius: 6px;
             margin-right: 15px; 
         }
 
         .link-card span {
             flex-grow: 1;
             text-align: center;
-            margin-right: 28px; /* Equilibra o ícone para centrar o texto */
+            margin-right: 30px; 
         }
 
         .link-card:hover {
             background: var(--primary);
             border-color: var(--primary);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(255, 0, 127, 0.4);
+            transform: scale(1.02);
+            box-shadow: 0 10px 25px rgba(255, 0, 127, 0.5);
         }
 
-        /* CORES DE HOVER PERSONALIZADAS */
-        .link-card.roblox:hover { background: var(--accent); border-color: var(--accent); box-shadow: 0 10px 20px rgba(99, 102, 241, 0.4); }
-        .link-card.discord:hover { background: var(--discord); border-color: var(--discord); box-shadow: 0 10px 20px rgba(88, 101, 242, 0.4); }
+        .link-card.roblox:hover { background: var(--accent); border-color: var(--accent); box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4); }
+        .link-card.discord:hover { background: var(--discord); border-color: var(--discord); box-shadow: 0 10px 25px rgba(88, 101, 242, 0.4); }
 
         .footer-tag {
-            font-size: 0.6rem;
+            font-size: 0.65rem;
             color: var(--primary);
             opacity: 0.6;
             text-transform: uppercase;
-            letter-spacing: 4px;
+            letter-spacing: 5px;
             margin-top: 10px;
         }
     </style>
@@ -172,7 +183,7 @@
             </a>
         </div>
 
-        <div class="footer-tag">The Eternal Show</div>
+        <div class="footer-tag">Eternal Show</div>
     </div>
 
 </body>
