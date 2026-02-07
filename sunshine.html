@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>SunShine | Stage</title>
+    <style>
+        :root {
+            --primary: #ff007f; 
+            --bg: #050505;
+            --glass: rgba(0, 0, 0, 0.85);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            background-color: var(--bg); 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            min-height: 100vh; 
+            font-family: 'Segoe UI', sans-serif;
+            overflow: hidden;
+        }
+
+        /* Fundo de Listras Estático */
+        body::before {
+            content: ""; 
+            position: fixed; 
+            top: 50%;
+            left: 50%;
+            width: 250vmax; 
+            height: 250vmax;
+            transform: translate(-50%, -50%);
+            background: repeating-conic-gradient(
+                from 0deg, 
+                #111 0deg 15deg, 
+                #050505 15deg 30deg
+            );
+            z-index: -1;
+        }
+
+        .stage-card {
+            width: 100%;
+            max-width: 420px;
+            background: var(--glass);
+            border: 1px solid rgba(255, 0, 127, 0.3);
+            border-radius: 30px;
+            overflow: hidden;
+            backdrop-filter: blur(15px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.9);
+            text-align: center;
+            margin: 20px;
+        }
+
+        /* Banner Superior */
+        .banner {
+            width: 100%;
+            height: 180px;
+            background: url('banner.jpg') no-repeat center center;
+            background-size: cover;
+            border-bottom: 4px solid var(--primary);
+        }
+
+        /* Foto de Perfil */
+        .profile-wrap {
+            margin-top: -65px;
+            position: relative;
+        }
+
+        .profile-img {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            border: 4px solid var(--primary);
+            background: #000;
+            object-fit: cover;
+            box-shadow: 0 0 25px rgba(255, 0, 127, 0.4);
+        }
+
+        /* Links das Redes Sociais */
+        .social-links {
+            padding: 35px 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .link-card {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 15px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .link-card:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            transform: scale(1.02);
+            box-shadow: 0 0 20px rgba(255, 0, 127, 0.5);
+            color: #fff;
+        }
+
+        /* Destaque sutil para o Roblox */
+        .link-card.roblox {
+            border-color: rgba(99, 102, 241, 0.4);
+        }
+        
+        .link-card.roblox:hover {
+            background: #6366f1;
+            border-color: #6366f1;
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="stage-card">
+        <div class="banner"></div>
+        
+        <div class="profile-wrap">
+            <img src="profile.jpg" alt="SunShine" class="profile-img">
+        </div>
+
+        <div class="social-links">
+            <a href="https://www.tiktok.com/@sunshine_tkk?_r=1&_t=ZS-93jJ3aP3I6X" target="_blank" class="link-card">TikTok</a>
+            <a href="https://www.instagram.com/sunshine_otv?igsh=MTZ2a3Z0ZXdieHdoMA==" target="_blank" class="link-card">Instagram</a>
+            <a href="https://youtube.com/@eosunshinexz?si=lrolK-pCzc_1Rule" target="_blank" class="link-card">YouTube</a>
+            <a href="https://www.roblox.com/users/3394007409/profile" target="_blank" class="link-card roblox">Roblox</a>
+        </div>
+    </div>
+
+</body>
+</html>
